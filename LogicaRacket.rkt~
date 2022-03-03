@@ -1,0 +1,5 @@
+#lang racket
+
+(define (filas matriz contador)
+  (cond [(null? matriz) contador]
+        [else (filas (cdr matriz) (+ contador 1))]))
