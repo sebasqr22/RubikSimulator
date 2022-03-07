@@ -9,27 +9,32 @@
          (cond [(equal? contador 0)
                 (c3b matriz (cons (list (position matriz 0 0) (position matriz 0 1) (position matriz 3 2)
                                         (position matriz 0 3) (position matriz 0 4) (position matriz 3 5)
-                                        (position matriz 0 6) (position matriz 0 7) (position matriz 3 8)) nueva) (+ 1 contador) type)] ;; blanca
+                                        (position matriz 0 6) (position matriz 0 7) (position matriz 3 8))
+                                  nueva) (+ 1 contador) type)] ;; blanca
                
                [(equal? contador 1)
                 (c3b matriz (cons (list (position matriz 1 0) (position matriz 1 1) (position matriz 0 2)
                                         (position matriz 1 3) (position matriz 1 4) (position matriz 0 5)
-                                        (position matriz 1 6) (position matriz 1 7) (position matriz 0 8)) nueva) (+ 1 contador) type)];; naranja
+                                        (position matriz 1 6) (position matriz 1 7) (position matriz 0 8))
+                                  nueva) (+ 1 contador) type)];; naranja
                
                [(equal? contador 2)
                 (c3b matriz (cons (list (position matriz 2 0) (position matriz 2 1) (position matriz 1 2)
                                         (position matriz 2 3) (position matriz 2 4) (position matriz 1 5)
-                                        (position matriz 2 6) (position matriz 2 7) (position matriz 1 8)) nueva) (+ 1 contador) type)];; amarillo
+                                        (position matriz 2 6) (position matriz 2 7) (position matriz 1 8))
+                                  nueva) (+ 1 contador) type)];; amarillo
                
                [(equal? contador 3)
                 (c3b matriz (cons (list (position matriz 3 0) (position matriz 3 1) (position matriz 2 2)
                                         (position matriz 3 3) (position matriz 3 4) (position matriz 2 5)
-                                        (position matriz 3 6) (position matriz 3 7) (position matriz 2 8)) nueva) (+ 1 contador) type)];; rojo
+                                        (position matriz 3 6) (position matriz 3 7) (position matriz 2 8))
+                                  nueva) (+ 1 contador) type)];; rojo
                
                [(equal? contador 4)
                 (c3b matriz (cons (list (position matriz 4 2) (position matriz 4 5) (position matriz 4 8)
                                         (position matriz 4 1) (position matriz 4 4) (position matriz 4 7)
-                                        (position matriz 4 0) (position matriz 4 3) (position matriz 4 6)) nueva) (+ 1 contador) type)];; verde
+                                        (position matriz 4 0) (position matriz 4 3) (position matriz 4 6))
+                                  nueva) (+ 1 contador) type)];; verde
                
                [(equal? contador 5)
                  (c3b matriz (cons (list-ref matriz 5) nueva) (+ 1 contador) type)];;azul
