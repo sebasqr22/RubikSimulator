@@ -1,6 +1,6 @@
 #lang racket
 
-(require "c2.rkt" "c1.rkt")
+(require "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
 
 (define (filas matriz contador)
   (cond [(null? matriz) contador]
@@ -26,8 +26,12 @@
 ;; 5x5 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 ;; 6x6 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 
-(define (validarCubo filas columnas)
-  (cond [(equal? filas columnas) #t]
+(define (validarCubo columnas)
+  (cond [(equal? columnas 4) #t]
+        [(equal? columnas 9) #t]
+        [(equal? columnas 16) #t]
+        [(equal? columnas 25) #t]
+        [(equal? columnas 36) #t]
         [else #f]))
 
 
@@ -40,3 +44,154 @@
 (define (movimientos estadoIni listaMovs)
   (cond [(equal? (columnas estadoIni 0 0 0) #f) #f]
         [else (movimientosAux estadoIni (filas estadoIni 0) (columnas estadoIni 0 0 0))]))
+
+(define (validaMov mov)
+  (cond [(equal? mov #f) #f]
+        [else #t]))
+
+(define (movs lista cubo largo)
+  (cond [(null? lista) cubo]
+
+        [(equal? (car lista) "c1a")
+         (cond [(equal? (validaMov (c1a cubo '() 0 largo)) #t)
+                (c1a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+        
+        [(equal? (car lista) "c1b")
+         (cond [(equal? (validaMov (c1b cubo '() 0 largo)) #t)
+                (c1b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c2a")
+         (cond [(equal? (validaMov (c2a cubo '() 0 largo)) #t)
+                (c2a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c2b")
+         (cond [(equal? (validaMov (c2b cubo '() 0 largo)) #t)
+                (c2b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        
+        [(equal? (car lista) "c3a")
+         (cond [(equal? (validaMov (c3a cubo '() 0 largo)) #t)
+                (c3a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c3b")
+         (cond [(equal? (validaMov (c3b cubo '() 0 largo)) #t)
+                (c3b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c4a")
+         (cond [(equal? (validaMov (c4a cubo '() 0 largo)) #t)
+                (c4a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c4b")
+         (cond [(equal? (validaMov (c4b cubo '() 0 largo)) #t)
+                (c4b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c5a")
+         (cond [(equal? (validaMov (c5a cubo '() 0 largo)) #t)
+                (c5a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c5b")
+         (cond [(equal? (validaMov (c5b cubo '() 0 largo)) #t)
+                (c5b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "c6a")
+         (cond [(equal? (validaMov (c6a cubo '() 0 largo)) #t)
+                (c6a cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        
+        [(equal? (car lista) "c6b")
+         (cond [(equal? (validaMov (c6b cubo '() 0 largo)) #t)
+                (c6b cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f1d")
+         (cond [(equal? (validaMov (f1d cubo '() 0 largo)) #t)
+                (f1d cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f1i")
+         (cond [(equal? (validaMov (f1i cubo '() 0 largo)) #t)
+                (f1i cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f2d")
+         (cond [(equal? (validaMov (f2d cubo '() 0 largo)) #t)
+                (f2d cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f2i")
+         (cond [(equal? (validaMov (f2i cubo '() 0 largo)) #t)
+                (f2i cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f3d")
+         (cond [(equal? (validaMov (f3d cubo '() 0 largo)) #t)
+                (f3d cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f3i")
+         (cond [(equal? (validaMov (f3i cubo '() 0 largo)) #t)
+                (f3i cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f4d")
+         (cond [(equal? (validaMov (f4d cubo '() 0 largo)) #t)
+                (f4d cubo '() largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f4i")
+         (cond [(equal? (validaMov (f4i cubo '() 0 largo)) #t)
+                (f4i cubo '() largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f5d")
+         (cond [(equal? (validaMov (f5d cubo '() 0 largo)) #t)
+                (f5d cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f5i")
+         (cond [(equal? (validaMov (f5i cubo '() 0 largo)) #t)
+                (f5i cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f6d")
+         (cond [(equal? (validaMov (f6d cubo '() 0 largo)) #t)
+                (f6d cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [(equal? (car lista) "f6i")
+         (cond [(equal? (validaMov (f6i cubo '() 0 largo)) #t)
+                (f6i cubo '() 0 largo)]
+               [else (movs (cdr lista) cubo largo)])]
+
+        [else (movs (cdr lista) cubo largo)]))
+
+        
+(define (getLargo columnas)
+  (cond [(equal? columnas 4) 2]
+        [(equal? columnas 9) 3]
+        [(equal? columnas 16) 4]
+        [(equal? columnas 25) 5]
+        [(equal? columnas 36) 6]))
+        
+
+
+(define (RS cubo mov)
+  (cond [(list? mov)
+         (cond [(equal? (validarCubo (columnas cubo 0 0 0)) #t)
+                (movs mov cubo (getLargo (columnas cubo 0 0 0)))]
+               
+               [else #t])]
+        [else #f]))
+
+       

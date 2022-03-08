@@ -1,5 +1,7 @@
 #lang racket
 
+(provide c2b c2a)
+
 (define (position matriz i j)
   (list-ref (list-ref matriz i) j))
 

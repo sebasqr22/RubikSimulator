@@ -1,5 +1,7 @@
 #lang racket
 
+(provide c6b c6a)
+
 (define (position matriz i j)
   (list-ref (list-ref matriz i) j))
 

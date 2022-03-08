@@ -1,5 +1,7 @@
 #lang racket
 
+(provide c3b c3a)
+
 (define (position matriz i j)
   (list-ref (list-ref matriz i) j))
 
@@ -80,7 +82,7 @@
 
         [(equal? type 5)
          (cond [(equal? contador 0)
-                (c2b matriz (cons (list (position matriz 0 0) (position matriz 0 1) (position matriz 3 2) (position matriz 0 3) (position matriz 0 4)
+                (c3b matriz (cons (list (position matriz 0 0) (position matriz 0 1) (position matriz 3 2) (position matriz 0 3) (position matriz 0 4)
                                         (position matriz 0 5) (position matriz 0 6) (position matriz 3 7) (position matriz 0 8) (position matriz 0 9)
                                         (position matriz 0 10) (position matriz 0 11) (position matriz 3 12) (position matriz 0 13) (position matriz 0 14)
                                         (position matriz 0 15) (position matriz 0 16) (position matriz 3 17)(position matriz 0 18) (position matriz 0 19)
@@ -88,7 +90,7 @@
                                   nueva) (+ 1 contador) type)]
                
                [(equal? contador 1)
-               (c2b matriz (cons (list (position matriz 1 0) (position matriz 1 1) (position matriz 0 2) (position matriz 1 3) (position matriz 1 4)
+               (c3b matriz (cons (list (position matriz 1 0) (position matriz 1 1) (position matriz 0 2) (position matriz 1 3) (position matriz 1 4)
                                         (position matriz 1 5) (position matriz 1 6) (position matriz 0 7) (position matriz 1 8) (position matriz 1 9)
                                         (position matriz 1 10) (position matriz 1 11) (position matriz 0 12) (position matriz 1 13) (position matriz 1 14)
                                         (position matriz 1 15) (position matriz 1 16) (position matriz 0 17)(position matriz 1 18) (position matriz 1 19)
@@ -96,7 +98,7 @@
                                   nueva) (+ 1 contador) type)]
 
                [(equal? contador 2)
-                (c2b matriz (cons (list (position matriz 2 0) (position matriz 2 1) (position matriz 1 2) (position matriz 2 3) (position matriz 2 4)
+                (c3b matriz (cons (list (position matriz 2 0) (position matriz 2 1) (position matriz 1 2) (position matriz 2 3) (position matriz 2 4)
                                         (position matriz 2 5) (position matriz 2 6) (position matriz 1 7) (position matriz 2 8) (position matriz 2 9)
                                         (position matriz 2 10) (position matriz 2 11) (position matriz 1 12) (position matriz 2 13) (position matriz 2 14)
                                         (position matriz 2 15) (position matriz 2 16) (position matriz 1 17) (position matriz 2 18) (position matriz 2 19)
@@ -104,7 +106,7 @@
                                   nueva) (+ 1 contador) type)]
 
                [(equal? contador 3)
-                (c2b matriz (cons (list (position matriz 3 0) (position matriz 3 1) (position matriz 2 2) (position matriz 3 3) (position matriz 3 4)
+                (c3b matriz (cons (list (position matriz 3 0) (position matriz 3 1) (position matriz 2 2) (position matriz 3 3) (position matriz 3 4)
                                         (position matriz 3 5) (position matriz 3 6) (position matriz 2 7) (position matriz 3 8) (position matriz 3 9)
                                         (position matriz 3 10) (position matriz 3 11) (position matriz 2 12) (position matriz 3 13) (position matriz 3 14)
                                         (position matriz 3 15) (position matriz 3 16) (position matriz 2 17) (position matriz 3 18) (position matriz 3 19)
@@ -112,15 +114,15 @@
                                   nueva) (+ 1 contador) type)] ;;rojo
 
                [(equal? contador 4)
-                (c2b matriz (cons (list-ref matriz 4) nueva) (+ 1 contador) type)];; verde
+                (c3b matriz (cons (list-ref matriz 4) nueva) (+ 1 contador) type)];; verde
 
                [(equal? contador 5)
-                (c2b matriz (cons (list-ref matriz 5) nueva) (+ 1 contador) type)] ;;azul
+                (c3b matriz (cons (list-ref matriz 5) nueva) (+ 1 contador) type)] ;;azul
                [else (reverse nueva)])]
         
         [(equal? type 6)
          (cond [(equal? contador 0)
-                (c2b matriz (cons (list
+                (c3b matriz (cons (list
                                    (position matriz 0 0) (position matriz 0 1) (position matriz 3 2) (position matriz 0 3) (position matriz 0 4) (position matriz 0 5)
                                    (position matriz 0 6) (position matriz 0 7) (position matriz 3 8) (position matriz 0 9) (position matriz 0 10) (position matriz 0 11)
                                    (position matriz 0 12) (position matriz 0 13) (position matriz 3 14) (position matriz 0 15) (position matriz 0 16) (position matriz 0 17)
@@ -130,7 +132,7 @@
                                   nueva) (+ 1 contador) type)] ;;blanco
                
                [(equal? contador 1)
-                (c2b matriz (cons (list
+                (c3b matriz (cons (list
                                    (position matriz 1 0) (position matriz 1 1) (position matriz 0 2) (position matriz 1 3) (position matriz 1 4) (position matriz 1 5)
                                    (position matriz 1 6) (position matriz 1 7) (position matriz 0 8) (position matriz 1 9) (position matriz 1 10) (position matriz 1 11)
                                    (position matriz 1 12) (position matriz 1 13) (position matriz 0 14) (position matriz 1 15) (position matriz 1 16) (position matriz 1 17)
@@ -140,7 +142,7 @@
                                   nueva) (+ 1 contador) type)] ;;naranja
 
                [(equal? contador 2)
-                (c2b matriz (cons (list
+                (c3b matriz (cons (list
                                    (position matriz 2 0) (position matriz 2 1) (position matriz 1 2) (position matriz 2 3) (position matriz 2 4) (position matriz 2 5)
                                    (position matriz 2 6) (position matriz 2 7) (position matriz 1 8) (position matriz 2 9) (position matriz 2 10) (position matriz 2 11)
                                    (position matriz 2 12) (position matriz 2 13) (position matriz 1 14) (position matriz 2 15) (position matriz 2 16) (position matriz 2 17)
@@ -149,7 +151,7 @@
                                    (position matriz 2 30) (position matriz 2 31) (position matriz 1 32) (position matriz 2 33) (position matriz 2 34) (position matriz 2 35))
                                   nueva) (+ 1 contador) type)];; amarillo
                [(equal? contador 3)
-                (c2b matriz (cons (list
+                (c3b matriz (cons (list
                                    (position matriz 3 0) (position matriz 3 1) (position matriz 2 2) (position matriz 3 3) (position matriz 3 4) (position matriz 3 5)
                                    (position matriz 3 6) (position matriz 3 7) (position matriz 2 8) (position matriz 3 9) (position matriz 3 10) (position matriz 3 11)
                                    (position matriz 3 12) (position matriz 3 13) (position matriz 2 14) (position matriz 3 15) (position matriz 3 16) (position matriz 3 17)
@@ -159,10 +161,10 @@
                                   nueva) (+ 1 contador) type)] ;;rojo
 
                [(equal? contador 4)
-                (c2b matriz (cons (list-ref matriz 4) nueva) (+ 1 contador) type)] ;;verde
+                (c3b matriz (cons (list-ref matriz 4) nueva) (+ 1 contador) type)] ;;verde
 
                [(equal? contador 5)
-                (c2b matriz (cons (list-ref matriz 5) nueva) (+ 1 contador) type)] ;;azul
+                (c3b matriz (cons (list-ref matriz 5) nueva) (+ 1 contador) type)] ;;azul
 
               [else (reverse nueva)])]))
 

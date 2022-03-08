@@ -1,4 +1,7 @@
 #lang racket
+
+(provide f5d f5i)
+
  (define (position matriz i j)
   (list-ref (list-ref matriz i) j))
 
