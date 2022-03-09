@@ -1,13 +1,8 @@
 #lang racket/gui
 (require 2htdp/image) ; Se importa esta libreria para proyectar imagenes
 (require lang/posn) ; Se importa esta libreria para usar posiciones en x/y con poligonos
-(require "LogicaRacket.rkt")
-(provide pass)
 
-(define cuboInicial '())
-;(caadr(RS '((0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5)) '("f1d")))
-(define (pass listaMovs)
-  (= cuboInicial (car listaMovs)))
+
 
 
 ; Funcion para definir el color de cualquier cuadrado

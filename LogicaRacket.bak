@@ -1,7 +1,6 @@
 #lang racket
 
-(require "Interfaz.rkt" "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
-(provide RS)
+(require "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
 
 (define (filas matriz contador)
   (cond [(null? matriz) contador]
@@ -58,8 +57,7 @@
   (cond [(equal? (validarCubo filas columnas)
                  #t)]
         [else #f]))
-
-
+  
          
 (define (movimientos estadoIni listaMovs)
   (cond [(equal? (columnas estadoIni 0 0 0) #f) #f]
@@ -70,9 +68,8 @@
         [else #t]))
 
 (define (movs lista cubo largo final)
-  (cond [(null? lista) (pass (separador2 final '() largo))]
+  (cond [(null? lista) (separador2 final '() largo)]
 
-        
         [(equal? (car lista) "c1a")
          (cond [(equal? (validaMov (c1a cubo '() 0 largo)) #t)
                 
