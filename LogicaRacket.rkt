@@ -1,7 +1,6 @@
 #lang racket
 
 (require "Interfaz.rkt" "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
-(provide RS)
 
 (define (filas matriz contador)
   (cond [(null? matriz) contador]
@@ -70,7 +69,7 @@
         [else #t]))
 
 (define (movs lista cubo largo final)
-  (cond [(null? lista) (pass (separador2 final '() largo))]
+  (cond [(null? lista) (Puente (separador2 final '() largo))]
 
         
         [(equal? (car lista) "c1a")
