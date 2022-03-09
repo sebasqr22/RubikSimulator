@@ -1,7 +1,7 @@
- #lang racket
+#lang racket
 
-(require "Interfaz.rkt" "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
-
+(require "c2.rkt" "c1.rkt" "c3.rkt" "c4.rkt" "c5.rkt" "c6.rkt" "f1.rkt" "f2.rkt" "f3.rkt" "f4.rkt" "f5.rkt" "f6.rkt")
+(provide rs)
 
 (define (filas matriz contador)
   (cond [(null? matriz) contador]
@@ -27,9 +27,10 @@
 ;; 5x5 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 ;; 6x6 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 
-
+(define x '())
 (define (separador2 listas aux largo)
-  (cond [(null? listas) (reverse aux)]
+  (cond [(null? listas)
+         (reverse aux)]
         [else
 
          (separador2 (cddddr(cddr listas)) (cons (list (list-ref listas 0)
@@ -65,7 +66,7 @@
         [else #t]))
 
 (define (movs lista cubo largo final)
-  (cond [(null? lista) (moves (separador2 final '() largo) largo)]
+  (cond [(null? lista)  (separador2 final '() largo)]
 
         
         [(equal? (car lista) "c1a")
@@ -205,7 +206,7 @@
 
 
 
-(define (RS cubo mov)
+(define (rs cubo mov)
   (cond [(list? mov)
          (cond [(equal? (validarCubo (columnas cubo 0 0 0)) #t)
                 (movs mov cubo (getLargo (columnas cubo 0 0 0)) cubo )]
