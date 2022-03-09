@@ -1,7 +1,7 @@
 #lang racket/gui
 (require 2htdp/image) ; Se importa esta libreria para proyectar imagenes
 (require lang/posn) ; Se importa esta libreria para usar posiciones en x/y con poligonos
-(provide Puente)
+(provide Puente moves)
 
 (define cuboInicial '())
 (define movimientos '())
@@ -25,6 +25,11 @@
   ((eq? num 4)(string-append "darkgreen"))
   ((eq? num 5)(string-append "cornflowerblue"))
   ))
+
+(define movActual '())
+
+
+
 
 ; Funciones para colocar cada cuadrado
 
@@ -373,6 +378,11 @@
                 (if (eq? val 5)(overlay/xy (overlay/xy leftFace5 250 0 rightFace5) 0 -100 upFace5)
                     (overlay/xy (overlay/xy leftFace6 300 0 rightFace6) 0 -120 upFace6))))))))
 
+(define (moves listaMovs largo)
+  (set! movActual (car listaMovs))
+  (cond [(equal? largo 3)
+         r1c1(up 0)
+         cubo(largo)]))
 
 ;(set! r1c1 (left num))
 ;(set! Aleft3x3(overlays 3 "left" r1c1 r1c2 r1c3 0 0 0))
