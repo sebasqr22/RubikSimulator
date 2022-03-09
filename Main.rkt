@@ -54,6 +54,7 @@
                 (make-posn 0 -40)
                 (make-posn -50 -20))
            "outline" "black")))
+
 ; Funcion que permite representar cualquier fila de cuadrados, de cualquier tamano
 
 (define (overlays num face A B C D E F)
@@ -97,9 +98,10 @@
 ; Funcion para proyectar cada cara con sus colocaciones correctas, de modo que se proyecte el cubo correctamente
 (define (RS val cube mov)
   (cond
-    ((if(null? mov)(paint val cube)
-           (if(= (length(car cube)) (* val val)) (RSaux val cube (cdr(rs cube mov)) 0)
-              (display "La cantidad de filas y columnas insertada no coincide con la lista que define el cubo"))))))
+    ((if(null? cube)(display "La lista inicial no puede ser vacia")
+        (if(null? mov)(paint val cube)
+           (if(= (length(car cube))(* val val)) (RSaux val cube (cdr(rs cube mov)) 0)
+              (display "La cantidad de filas y columnas insertada no coincide con la lista que define el cubo")))))))
 
 ; Funcion auxiliar, que proyecta cada movimiento del cubo
 (define (RSaux val cube mov cont)
