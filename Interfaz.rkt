@@ -3,10 +3,6 @@
 (require lang/posn) ; Se importa esta libreria para usar posiciones en x/y con poligonos
 (require "LogicaRacket.rkt")
 
-
-;(caadr(RS '((0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5)) '("f1d")))
-
-
 ; Funcion para definir el color de cualquier cuadrado
 (define (color num)
   (cond
