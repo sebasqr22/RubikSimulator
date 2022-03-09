@@ -26,6 +26,24 @@
 ;; 5x5 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 ;; 6x6 '((0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1) (2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2) (3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3) (4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4) (5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5))
 
+(define (separador listas aux contador)
+  (cond [(null? listas) aux]
+        [(equal? contador 5)
+         (separador (cdr listas) (cons (list (car listas)) aux ) 0)]
+        [else (separador (cdr listas) (cons (car listas) aux) (+ 1 contador))]))
+
+(define (separador2 listas aux largo)
+  (cond [(null? listas) (reverse aux)]
+        [else
+
+         (separador2 (cddddr(cddr listas)) (cons (list (list-ref listas 0)
+                                                            (list-ref listas 1)
+                                                            (list-ref listas 2)
+                                                            (list-ref listas 3)
+                                                            (list-ref listas 4)
+                                                            (list-ref listas 5)) aux) largo)]))
+        
+
 (define (validarCubo columnas)
   (cond [(equal? columnas 4) #t]
         [(equal? columnas 9) #t]
@@ -50,7 +68,7 @@
         [else #t]))
 
 (define (movs lista cubo largo final)
-  (cond [(null? lista) final]
+  (cond [(null? lista) (separador2 final '() largo)]
 
         [(equal? (car lista) "c1a")
          (cond [(equal? (validaMov (c1a cubo '() 0 largo)) #t)
@@ -185,7 +203,8 @@
         [(equal? columnas 16) 4]
         [(equal? columnas 25) 5]
         [(equal? columnas 36) 6]))
-        
+
+
 
 
 (define (RS cubo mov)
