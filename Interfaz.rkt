@@ -1,7 +1,6 @@
 #lang racket/gui
 (require 2htdp/image) ; Se importa esta libreria para proyectar imagenes
 (require lang/posn) ; Se importa esta libreria para usar posiciones en x/y con poligonos
-
 (provide Puente)
 
 (define cuboInicial '())
@@ -15,7 +14,6 @@
         [else (set! movimientos (cdr listaMovs))])
   (display "\n")
   (display movimientos))
-
 
 ; Funcion para definir el color de cualquier cuadrado
 (define (color num)
